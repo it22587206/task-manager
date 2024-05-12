@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="10dp"
-    app:cardBackgroundColor="#B6D6F8">
+    android:backgroundTint="@color/typefield">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,10 +15,14 @@
             android:id="@+id/titleTaskTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:text="New Task"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
         <ImageView
             android:id="@+id/closeImg"
@@ -29,14 +33,15 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_close" />
+            android:src="@drawable/ic_close"
+            app:tint="@color/mainBackgroundColor"/>
 
         <View
             android:id="@+id/viewHLine"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_below="@id/titleTaskTxt"
-            android:background="@color/black" />
+            android:background="@color/mainBackgroundColor" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,7 +50,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="8dp"
-            android:background="@drawable/background_im"
+            android:background="@drawable/new_new"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -53,14 +58,18 @@
                 android:id="@+id/edTaskTitleL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter The Task Title">
+                android:hint="Enter The Task Title"
+                app:hintTextColor="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edTaskTitle"
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize"
                     android:background="@color/typefield"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="20sp"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="9dp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -68,17 +77,20 @@
                 android:id="@+id/edTaskDescL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter The Task Description">
+                android:hint="Enter The Task Description"
+                app:hintTextColor="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edTaskDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#EAE4E8"
+                    android:background="@color/typefield"
                     android:gravity="top|start"
                     android:inputType="textMultiLine"
                     android:lines="5"
-                    android:maxLines="5" />
+                    android:maxLines="5"
+                    android:textSize="20sp"
+                    android:layout_marginHorizontal="8dp"/>
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -95,7 +107,8 @@
                 android:backgroundTint="@color/mainBackgroundColor"
                 style="@style/Widget.App.Button.Fill"
                 android:text="Save Task"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

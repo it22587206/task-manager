@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mainBackgroundColor">#037DFF</color>
     <color name="typefield">#7EB8F6</color>
+    <color name="backgroundsilver"> #CCCCCC</color>
 </resources>

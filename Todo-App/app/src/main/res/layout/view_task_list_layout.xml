@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginVertical="4dp"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="@color/typefield"
     app:cardElevation="10dp">
 
     <RelativeLayout
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
                 android:text="Description"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -47,7 +47,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
                 android:text="Date"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
         <LinearLayout
@@ -63,14 +64,16 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginVertical="4dp"
-                android:src="@drawable/ic_edit" />
+                android:src="@drawable/ic_edit"
+                app:tint="@color/mainBackgroundColor"/>
 
             <ImageView
                 android:id="@+id/deleteImg"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginVertical="4dp"
-                android:src="@drawable/ic_delete" />
+                android:src="@drawable/ic_delete"
+                app:tint="@color/mainBackgroundColor"/>
         </LinearLayout>
     </RelativeLayout>
 
