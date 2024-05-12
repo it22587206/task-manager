@@ -12,28 +12,33 @@ import com.coding.meet.todo_app.models.Task
 import java.text.SimpleDateFormat
 import java.util.Locale
 
+// Adapter for RecyclerView to display tasks in either list or grid format
 class TaskRVVBListAdapter(
-    private val isList: MutableLiveData<Boolean>,
-    private val deleteUpdateCallback: (type: String, position: Int, task: Task) -> Unit,
+    private val isList: MutableLiveData<Boolean>,// LiveData to determine list or grid layout
+    private val deleteUpdateCallback: (type: String, position: Int, task: Task) -> Unit,// Callback function for delete and update actions
 ) :
     ListAdapter<Task,RecyclerView.ViewHolder>(DiffCallback()) {
 
 
-
+    // ViewHolder for list layout
     class ListTaskViewHolder(private val viewTaskListLayoutBinding: ViewTaskListLayoutBinding) :
         RecyclerView.ViewHolder(viewTaskListLayoutBinding.root) {
 
+        // Bind data to list item views
         fun bind(
             task: Task,
             deleteUpdateCallback: (type: String, position: Int, task: Task) -> Unit,
         ) {
+            // Set task title and description
             viewTaskListLayoutBinding.titleTxt.text = task.title
             viewTaskListLayoutBinding.descrTxt.text = task.description
 
+            // Format and set task date
             val dateFormat = SimpleDateFormat("dd-MMM-yyyy HH:mm:ss a", Locale.getDefault())
 
             viewTaskListLayoutBinding.dateTxt.text = dateFormat.format(task.date)
 
+            // Set click listeners for delete and edit actions
             viewTaskListLayoutBinding.deleteImg.setOnClickListener {
                 if (adapterPosition != -1) {
                     deleteUpdateCallback("delete", adapterPosition, task)
@@ -48,20 +53,25 @@ class TaskRVVBListAdapter(
     }
 
 
+    // ViewHolder for grid layout
     class GridTaskViewHolder(private val viewTaskGridLayoutBinding: ViewTaskGridLayoutBinding) :
         RecyclerView.ViewHolder(viewTaskGridLayoutBinding.root) {
 
+        // Bind data to grid item views
         fun bind(
             task: Task,
             deleteUpdateCallback: (type: String, position: Int, task: Task) -> Unit,
         ) {
+            // Set task title and description
             viewTaskGridLayoutBinding.titleTxt.text = task.title
             viewTaskGridLayoutBinding.descrTxt.text = task.description
 
+            // Format and set task date
             val dateFormat = SimpleDateFormat("dd-MMM-yyyy HH:mm:ss a", Locale.getDefault())
 
             viewTaskGridLayoutBinding.dateTxt.text = dateFormat.format(task.date)
 
+            // Set click listeners for delete and edit actions
             viewTaskGridLayoutBinding.deleteImg.setOnClickListener {
                 if (adapterPosition != -1) {
                     deleteUpdateCallback("delete", adapterPosition, task)
@@ -76,6 +86,7 @@ class TaskRVVBListAdapter(
     }
 
 
+    // Create ViewHolder based on viewType (list or grid)
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -99,6 +110,7 @@ class TaskRVVBListAdapter(
         }
     }
 
+    // Bind data to ViewHolder based on layout type
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val task = getItem(position)
 
@@ -110,6 +122,7 @@ class TaskRVVBListAdapter(
 
     }
 
+    // Determine viewType based on layout type (list or grid)
     override fun getItemViewType(position: Int): Int {
         return if (isList.value!!){
             0 // List_Item
@@ -120,6 +133,7 @@ class TaskRVVBListAdapter(
 
 
 
+    // DiffCallback to efficiently update RecyclerView items
     class DiffCallback : DiffUtil.ItemCallback<Task>() {
         override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean {
             return oldItem.id == newItem.id

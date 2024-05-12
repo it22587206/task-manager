@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/new_new">
+        android:background="@drawable/back">
 
         <TextView
             android:id="@+id/titleTaskTxt"
@@ -67,6 +67,7 @@
                     android:layout_height="?actionBarSize"
                     android:background="@color/typefield"
                     android:inputType="text"
+                    android:textColor="@color/white"
                     android:textSize="20sp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -88,6 +89,7 @@
                     android:inputType="textMultiLine"
                     android:lines="5"
                     android:maxLines="5"
+                    android:textColor="@color/white"
                     android:textSize="20sp"/>
 
             </com.google.android.material.textfield.TextInputLayout>

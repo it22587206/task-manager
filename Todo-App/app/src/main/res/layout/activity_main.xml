@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/new_new"
+    android:background="@drawable/back"
     tools:context=".MainActivity">
 
 
@@ -88,6 +88,8 @@
                     android:background="@color/typefield"
                     android:hint="Enter search title"
                     android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
                     android:imeOptions="actionSearch"
                     android:inputType="text" />
 
